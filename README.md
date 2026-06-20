@@ -4,7 +4,7 @@ Flowboard is a mini project-management app for one workspace. It combines a perm
 
 ## Run locally
 
-Requirements: Node.js 22.5+ and npm 10+.
+Requirements: Node.js 22.12+ and npm 10+.
 
 ```bash
 npm install
@@ -78,7 +78,7 @@ An extension for teams would add grant subjects (`user | team`), membership tabl
 | Bob | member | Engineering is denied and Q2 Launch is private, but a specific allow reopens Backlog. He sees redacted ancestor shells plus Backlog; Current Sprint and Product remain hidden. |
 | Carol | member | An allow opens the private Product branch and Discovery folder, while a specific deny hides the otherwise-public Product Roadmap list. |
 
-## Reviewer demo
+## demo
 
 1. Start with `npm run dev` (or `make dev`).
 2. Select **Alice** and confirm the complete workspace tree is visible.

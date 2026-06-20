@@ -129,3 +129,28 @@ Task pagination uses `offset` and `limit` (maximum 100). Sorting supports `sort=
 - The MVP permanently deletes tasks and has no restore/history screen.
 - Cross-list movement is available from the task drawer; board drag-and-drop remains scoped to the selected list.
 - One-level subtasks, real-time collaboration, audit history, richer grant subjects, cursor pagination, broader Playwright coverage, and responsive mobile layouts are next.
+
+
+## AI usage log
+
+AI tools were used during development for:
+
+- Initial Vue, Express, and SQLite boilerplate.
+- Suggestions around API validation, permissions, migrations, and tests.
+- Drafting repetitive TypeScript types and test cases.
+- Comparing the README with the final implementation.
+
+AI-assisted review also highlighted several gaps in the initial version, including status authorization, grant management, default statuses for new lists, archive/restore ordering, and missing administrative UI controls.
+
+I reviewed the suggestions and made the final implementation decisions. My changes included:
+
+- Restricting status configuration to admins while allowing members to edit tasks.
+- Keeping task assignment separate from list access permissions.
+- Warning when an assignee cannot access the selected list.
+- Creating default statuses transactionally with new lists.
+- Normalizing sibling positions during archive and restore operations.
+- Making status insertion order deterministic.
+- Adding database triggers for hierarchy and task/status integrity.
+- Updating and extending tests to match the final API behavior.
+
+The final implementation was checked with API and frontend tests, type-checking, and a production build. AI output was reviewed and adapted rather than used without verification.

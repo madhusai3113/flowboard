@@ -1,0 +1,26 @@
+{
+  "name": "flowboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "npm run db:setup && concurrently -n API,WEB -c blue,magenta \"npm run dev -w @flowboard/api\" \"npm run dev -w @flowboard/web\"",
+    "build": "npm run build -w @flowboard/api && npm run build -w @flowboard/web",
+    "test": "npm run test -w @flowboard/api && npm run test -w @flowboard/web",
+    "typecheck": "npm run typecheck -w @flowboard/api && npm run typecheck -w @flowboard/web",
+    "db:migrate": "npm run db:migrate -w @flowboard/api",
+    "db:seed": "npm run db:seed -w @flowboard/api",
+    "db:reset": "npm run db:seed -w @flowboard/api -- --force",
+    "db:setup": "npm run db:setup -w @flowboard/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
